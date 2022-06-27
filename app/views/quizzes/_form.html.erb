@@ -1,0 +1,48 @@
+<br><br>
+<div class="container">
+  <h2>Quiz form</h2>
+  <%= form_for(@quiz) do |f| %>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Title:</label>
+      <div class="col-sm-10">
+        <%= f.text_field :title,:required=>true,:class=>"form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Description:</label>
+      <div class="col-sm-10"> 
+        <%= f.text_area :description,:required=>true,:class=>"form-control" %>         
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Number of Questions:</label>
+      <div class="col-sm-10"> 
+        <%= f.number_field :no_of_questions,:required=>true,:class=>"form-control" %>         
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Marks For Each Question:</label>
+      <div class="col-sm-10"> 
+        <%= f.number_field :individual_mark,:required=>true,:class=>"form-control" %>         
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Threshold Mark:</label>
+      <div class="col-sm-10"> 
+        <%= f.number_field :cut_off_mark,:required=>true,:class=>"form-control" %>         
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Negative Mark:</label>
+      <div class="col-sm-10"> 
+        <%= f.number_field :negative_mark,:required=>true,:class=>"form-control" %>         
+      </div>
+    </div>
+    <br>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Submit",:class=>"btn btn-primary" %>
+      </div>
+    </div>
+   <%end%>
+</div>
