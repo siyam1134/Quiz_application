@@ -2,3 +2,27 @@
 <%= link_to("Logout", destroy_user_session_path, :method => :delete)%>
 <br><br>
 <%= link_to("Create New Quiz", new_quiz_path)%>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">S.no</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @quizzes.compact.each do |quiz| %>
+    <tr>
+      <th scope="row"><%= %></th>
+      <td><%= quiz.title%></td>
+      <td><%=quiz.description%></td>
+      <td>
+      <%= link_to "Destroy", quiz_path(quiz), :method=>:delete %>
+      <%= link_to "Edit", edit_quiz_path(quiz) %>
+      </td>
+    </tr>
+<%end%>
+  </tbody>
+</table>
