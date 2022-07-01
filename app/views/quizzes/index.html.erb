@@ -1,28 +1,64 @@
-<br><br>
-<%= link_to("Logout", destroy_user_session_path, :method => :delete)%>
-<br><br>
-<%= link_to("Create New Quiz", new_quiz_path)%>
+<body>
+<div class = "container">
+<div class="bg-dark d-flex justify-content-between">
+    <div><%= link_to("Create New Quiz", new_quiz_path,:class=>"btn btn-primary")%></div>
+    <div><%= link_to("Logout", destroy_user_session_path, :method => :delete,:class=>"btn btn-danger")%></div>
+</div>
+  <div class = "row justify-content-center">
+         <div class ="col-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="cc-container">
+                <h2 class="text-center">Quiz</h2>
+                <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="adding_row">
+                <% @quizzes.compact.each do |quiz| %>
+                  <tr>
+                    <td><%= quiz.title%></td>
+                    <td><%=quiz.description%></td>
+                    <td class="text-center">
+                    <%= link_to "Destroy", quiz_path(quiz), :method=>:delete,:class=>"btn btn-danger" %>
+                    <%= link_to "Edit", edit_quiz_path(quiz),:class=>"btn btn-secondary" %>
+                    <%= link_to "Show", quiz_path(quiz),:class=>"btn btn-primary" %>
+                    </td>
+                  </tr>
+              <%end%>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">S.no</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @quizzes.compact.each do |quiz| %>
-    <tr>
-      <th scope="row"><%= %></th>
-      <td><%= quiz.title%></td>
-      <td><%=quiz.description%></td>
-      <td>
-      <%= link_to "Destroy", quiz_path(quiz), :method=>:delete %>
-      <%= link_to "Edit", edit_quiz_path(quiz) %>
-      </td>
-    </tr>
-<%end%>
-  </tbody>
-</table>
+</body>
+<style>
+.cc-container
+{
+  background-color: #ffff;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 1px 5px 10px #ddd;
+}
+
+.cc{
+  font-weight: bold;
+  color: #333333;
+  font-size: 18px;
+}
+body
+{
+  padding: 0px;
+  margin: 0px;
+  background-color: #eee;
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+}
+</style>

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_070700) do
+ActiveRecord::Schema.define(version: 2022_07_01_044809) do
+
+  create_table "quiz_questions", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "quiz_id"
+    t.text "question"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_quiz_questions_on_quiz_id"
+  end
 
   create_table "quizzes", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"

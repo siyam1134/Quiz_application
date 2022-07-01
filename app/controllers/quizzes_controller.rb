@@ -1,8 +1,12 @@
 class QuizzesController < ApplicationController
     before_action :authenticate_user!
     def index
-        @quizzes = Quiz.all
+        @quizzes = Quiz.where(:user_id=>current_user.id)
         puts @quizzes.inspect
+    end
+    def show
+        find_quiz
+        @quiz_question = QuizQuestion.new
     end
     def new
         @quiz = Quiz.new

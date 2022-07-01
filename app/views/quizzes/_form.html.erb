@@ -1,48 +1,73 @@
-<br><br>
-<div class="container">
-  <h2>Quiz form</h2>
-  <%= form_for(@quiz) do |f| %>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Title:</label>
-      <div class="col-sm-10">
-        <%= f.text_field :title,:required=>true,:class=>"form-control" %>
+<body>
+<div class = "container">
+  <div class = "row justify-content-center">
+    <div class ="col-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="cc-container">
+          <h2 class="text-center">Quiz form</h2>
+          <%= form_for(@quiz) do |f| %>
+            <div class="cc">
+            <label for="title"><span>Title</span><span style="color: red;">*</span></label>
+                <%= f.text_field :title,:required=>true,:class=>"form-control" %>
+            </div>
+            <div class="cc mt-4">
+            <label for="Description"><span>Description</span><span style="color: red;">*</span></label>
+            <%= f.text_area :description,:required=>true,:class=>"form-control",:rows=>"7" %>         
+            </div>
+            <div class="cc mt-4">
+            <label for="Number of questions"><span>Number of Questions</span><span style="color: red;">*</span></label>
+                <%= f.number_field :no_of_questions,:required=>true,:class=>"form-control" %>         
+            
+            </div>
+            <%= f.hidden_field :user_id,:value=>current_user.id%>
+            <div class="cc mt-4">
+            <label for="Marks for each question"><span>Marks for Each Question</span><span style="color: red;">*</span></label>
+                <%= f.number_field :individual_mark,:required=>true,:class=>"form-control" %>         
+            </div>
+            <div class="cc mt-4">
+            <label for="threshold mark"><span>Threshold Mark</span><span style="color: red;">*</span></label>
+               
+                <%= f.number_field :cut_off_mark,:required=>true,:class=>"form-control" %>         
+              
+            </div>
+            <div class="cc mt-4">
+            <label for="negative mark"><span>Negative Mark</span><span style="color: red;">*</span></label>
+              
+                <%= f.number_field :negative_mark,:required=>true,:class=>"form-control" %>         
+              
+            </div>  
+            <div class="text-center mt-4">
+              <%= f.submit "Submit",:class=>"btn btn-primary" %>
+            </div>
+          <%end%>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Description:</label>
-      <div class="col-sm-10"> 
-        <%= f.text_area :description,:required=>true,:class=>"form-control" %>         
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Number of Questions:</label>
-      <div class="col-sm-10"> 
-        <%= f.number_field :no_of_questions,:required=>true,:class=>"form-control" %>         
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Marks For Each Question:</label>
-      <div class="col-sm-10"> 
-        <%= f.number_field :individual_mark,:required=>true,:class=>"form-control" %>         
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Threshold Mark:</label>
-      <div class="col-sm-10"> 
-        <%= f.number_field :cut_off_mark,:required=>true,:class=>"form-control" %>         
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Negative Mark:</label>
-      <div class="col-sm-10"> 
-        <%= f.number_field :negative_mark,:required=>true,:class=>"form-control" %>         
-      </div>
-    </div>
-    <br>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit "Submit",:class=>"btn btn-primary" %>
-      </div>
-    </div>
-   <%end%>
+   </div>
 </div>
+</body>
+
+<style>
+.cc-container
+{
+  background-color: #ffff;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 1px 5px 10px #ddd;
+}
+
+.cc{
+  font-weight: bold;
+  color: #333333;
+  font-size: 18px;
+}
+body
+{
+  padding: 0px;
+  margin: 0px;
+  background-color: #eee;
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+}
+</style>

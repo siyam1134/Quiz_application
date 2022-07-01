@@ -1,0 +1,49 @@
+<body>
+<div class = "container">
+  <div class = "row justify-content-center">
+         <div class ="col-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="cc-container">
+            <%= form_for(@quiz_question) do |f| %>
+                <div class="cc">
+                    <label for="description"><span>Question</span><span style="color: red;">*</span></label>
+                    <%= f.text_area :question,:required=>true,:class=>"form-control",:rows=>"7" %> 
+                </div>
+                <div class="cc">
+                <% for i in 1..4 %>
+                    <p class="title mt-20">Option <%=i.to_s %></p>
+                    <%= radio_button_tag(:answer_option,""+i.to_s+"") %>
+                    <%= text_field_tag "option"+i.to_s,"",:class=>'quiz_text_box fields' %>
+                <% end %>
+                </div>
+            <%end%>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+.cc-container
+{
+  background-color: #ffff;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 1px 5px 10px #ddd;
+}
+
+.cc{
+  font-weight: bold;
+  color: #333333;
+  font-size: 18px;
+}
+body
+{
+  padding: 0px;
+  margin: 0px;
+  background-color: #eee;
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+}
+</style>

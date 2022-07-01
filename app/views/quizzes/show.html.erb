@@ -1,0 +1,55 @@
+<body>
+<div class = "container">
+  <div class = "row justify-content-center">
+         <div class ="col-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="cc-container">
+                <h2 class="text-center"><%= @quiz.title%></h2>
+                <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Question</th>
+                    <th scope="col">Option 1</th>
+                    <th scope="col">Option 2</th>
+                    <th scope="col">Option 3</th>
+                    <th scope="col">Option 4</th>
+                  </tr>
+                </thead>
+                <tbody class="adding_row">
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <div class="cc-container">
+                <%= render :partial => "question_form"%>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<style>
+.cc-container
+{
+  background-color: #ffff;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 1px 5px 10px #ddd;
+}
+
+.cc{
+  font-weight: bold;
+  color: #333333;
+  font-size: 18px;
+}
+body
+{
+  padding: 0px;
+  margin: 0px;
+  background-color: #eee;
+  color:#333;
+  font-family: 'Open Sans', sans-serif;
+}
+</style>
