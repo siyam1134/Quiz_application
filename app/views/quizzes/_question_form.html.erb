@@ -3,10 +3,11 @@
   <div class = "row justify-content-center">
          <div class ="col-12 col-lg-12 col-md-12 col-sm-12">
             <div class="cc-container">
-            <%= form_for(@quiz_question) do |f| %>
+            <%= form_for(@quiz_question,:remote=>true) do |f| %>
                 <div class="cc">
                     <label for="description"><span>Question</span><span style="color: red;">*</span></label>
                     <%= f.text_area :question,:required=>true,:class=>"form-control",:rows=>"7" %> 
+                    <%=f.hidden_field :quiz_id,:value=>@quiz.id%>
                 </div>
                 <div class="cc">
                 <% for i in 1..4 %>
@@ -14,6 +15,9 @@
                     <%= radio_button_tag(:answer_option,""+i.to_s+"") %>
                     <%= text_field_tag "option"+i.to_s,"",:class=>'quiz_text_box fields' %>
                 <% end %>
+                </div>
+                <div class="text-center mt-4">
+                <%= f.submit "Submit",:class=>"btn btn-primary" %>
                 </div>
             <%end%>
             </div>
