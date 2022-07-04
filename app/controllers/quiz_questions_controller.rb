@@ -17,6 +17,11 @@ class QuizQuestionsController < ApplicationController
             format.js {render "create"}
         end
     end
+
+    def destroy
+        @question = QuizQuestion.find_by_id(params[:id])
+        @question.destroy!
+    end
     private
     def question_params
         params.require(:quiz_question).permit(:question,:quiz_id)

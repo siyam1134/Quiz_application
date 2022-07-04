@@ -1,0 +1,17 @@
+<tr class="question-<%=quest.id%>">
+<td>
+<%= quest.question%>
+</td>
+<% quest.quiz_question_answers.each do |option|%>
+    <td>
+    <% if option.is_true%>
+        <p style="color: green;"><%=option.option%> (*)</p>
+    <%else%>
+        <%=option.option%>
+    <%end%>
+    </td>
+<%end%>
+<td>
+<%= link_to "Delete", quiz_question_path(quest), :method=>:delete,:remote=>true,:class=>"btn btn-danger" %>
+</td>
+</tr>

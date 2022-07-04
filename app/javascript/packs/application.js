@@ -10,6 +10,8 @@ import "channels"
 
 require("@popperjs/core")
 require("jquery")
+import jquery from 'jquery';
+window.$ = window.jquery = jquery;
 
 import "bootstrap"
 

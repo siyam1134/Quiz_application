@@ -1,2 +1,11 @@
-new_row = '<tr><td><%= @question.question%></td></tr>'
-$(".adding_row").append(new_row.html_safe);
+function notification(msg,type){
+var alert = $('<div class="alert notification-alert '+type+'-notification"></div>');
+$('body').append(alert);
+alert.html(msg);
+setTimeout(function(){
+$('.notification-alert').fadeOut().html('');
+},3000);
+// console.clear();
+}
+container = $(".question_table")
+container.append('<%= j render partial: "quizzes/question", :locals=>{:quest => @question} %>');

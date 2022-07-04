@@ -4,7 +4,7 @@
          <div class ="col-12 col-lg-12 col-md-12 col-sm-12">
             <div class="cc-container">
                 <h2 class="text-center"><%= @quiz.title%></h2>
-                <table class="table">
+                <table class="table question_table">
                 <thead>
                   <tr>
                     <th scope="col">Question</th>
@@ -12,10 +12,13 @@
                     <th scope="col">Option 2</th>
                     <th scope="col">Option 3</th>
                     <th scope="col">Option 4</th>
+                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
-                <tbody id="adding_row">
-
+                <tbody>
+                <% @quiz.quiz_questions.each do |question|%>
+                  <%= render :partial => "question",:locals=>{:quest=>question}%>
+                <%end%>
                 </tbody>
               </table>
             </div>
